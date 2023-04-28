@@ -1,12 +1,21 @@
 import React from "react";
-import styles from "../../../styles/component/navbar.module.scss";
+import styles from "../../../styles/component/home/navbar.module.scss";
 import Container from "../Container";
+import Logo from "./Logo";
+import Search from "./Search";
+import UserMenu from "./UserMenu";
 
 const Navbar = () => {
   return (
     <nav className={styles["nav"]}>
-      <div className={styles["nav-container"]}>
-        <Container>anything</Container>
+      <div>
+        <Container>
+          <div className={styles["container"]}>
+            <Logo />
+            <Search />
+            <UserMenu />
+          </div>
+        </Container>
       </div>
     </nav>
   );

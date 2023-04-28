@@ -39,9 +39,9 @@ $breakpoints: (
   }
 }
 
-@mixin flex {
+@mixin flex($align, $justify, $direction) {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: red;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $direction;
 }

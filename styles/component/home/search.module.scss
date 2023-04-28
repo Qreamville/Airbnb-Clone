@@ -1,0 +1,65 @@
+.btn {
+  border: 1px;
+  width: 100%;
+  padding: 0.5rem 0;
+  border-radius: 9999999px;
+  box-shadow: $sm;
+  cursor: pointer;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  @media (min-width: 768px) {
+    width: auto;
+  }
+
+  &:hover {
+    box-shadow: $md;
+  }
+  > div {
+    @include flex(center, space-between, row);
+
+    div:first-child {
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+      font-weight: 600;
+      padding: 0 1.5rem;
+    }
+
+    div:nth-child(2) {
+      display: none;
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+      font-weight: 600;
+      padding: 0 1.5rem;
+      border-left-width: 1px;
+      border-right-width: 1px;
+      border-color: rgb(240, 232, 232);
+      flex: 1 1 0%;
+      text-align: center;
+      @media (min-width: 640px) {
+        display: block;
+      }
+    }
+    div:nth-child(3) {
+      @include flex(center, flex-start, row);
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+      padding: 0 1.5rem 0 0.5rem;
+      color: rgb(75 85 99);
+      gap: 0.75rem;
+
+      div:first-child {
+        display: none;
+        @media (min-width: 640px) {
+          display: block;
+        }
+      }
+      div:last-child {
+        padding: 0.5rem;
+        background: rgb(244 63 94);
+        border-radius: 99999px;
+        color: white;
+      }
+    }
+  }
+}
