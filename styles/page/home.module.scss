@@ -1,0 +1,10 @@
+@import "./utils/variables.scss";
+@import "./utils/mixins.scss";
+
+.home {
+  @include flex;
+  flex-direction: column;
+  width: 500px;
+  margin: auto auto;
+  background-color: $red;
+}
