@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import styles from "../../../styles/component/home/navbar.module.scss";
 import Container from "../Container";
