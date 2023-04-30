@@ -1,6 +1,7 @@
 "use client";
 
 import React, { ReactElement, useState, useEffect, useCallback } from "react";
+import styles from "../../../styles/component/modal.module.scss";
 
 interface ModalProps {
   isOpen: boolean;
@@ -54,7 +55,22 @@ const Modal = ({
 
   if (!isOpen) return null;
 
-  return <div>Modal</div>;
+  return (
+    <>
+      <div className={styles.modal}>
+        <div>
+          {/* Content */}
+          <div
+            className={`${
+              showModal ? styles["modal-active"] : ["modal-disabled"]
+            }`}
+          >
+            <div className={styles.header}></div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default Modal;

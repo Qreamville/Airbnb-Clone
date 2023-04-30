@@ -1,0 +1,82 @@
+.modal {
+  @include flex(center, center, row);
+  background-color: rgba(38, 38, 38, 0.7);
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: fixed;
+  inset: 0px;
+  z-index: 50;
+  outline: none;
+
+  &:focus {
+    outline: none;
+  }
+
+  > div {
+    position: relative;
+    width: 100%;
+    margin: 1.5rem auto;
+    height: 100%;
+
+    @media (min-width: 768px) {
+      width: 66.666667%;
+      height: auto;
+    }
+    @media (min-width: 1124px) {
+      width: 50%;
+      height: auto;
+    }
+    @media (min-width: 1280px) {
+      width: 40%;
+    }
+
+    div:first-child {
+      transition-duration: 300ms;
+      height: 100%;
+
+      div {
+        height: 100%;
+        border: 0;
+        border-radius: 0.5rem;
+        position: relative;
+        box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+          0 4px 6px -4px rgb(0 0 0 / 0.1);
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background-color: white;
+        outline: none;
+
+        &:focus {
+          outline: none;
+        }
+
+        @media (min-width: 768px) {
+          height: auto;
+        }
+        @media (min-width: 1124px) {
+          height: auto;
+        }
+      }
+    }
+  }
+
+  .header {
+    @include flex(center, center, row);
+    position: relative;
+    padding: 1.5rem;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    border-bottom-width: 1px solid #e8e8e8;
+  }
+}
+
+.modal-active {
+  transform: translateY(0px);
+  opacity: 1;
+}
+
+.modal-disabled {
+  transform: translateY(100%);
+  opacity: 0;
+}
