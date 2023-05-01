@@ -14,30 +14,27 @@
 
   > div {
     position: relative;
-    width: 100%;
+    width: 80%;
     margin: 1.5rem auto;
-    height: 100%;
+    height: auto;
 
     @media (min-width: 768px) {
       width: 66.666667%;
-      height: auto;
     }
     @media (min-width: 1124px) {
       width: 50%;
-      height: auto;
     }
     @media (min-width: 1280px) {
       width: 40%;
     }
 
-    div:first-child {
+    > div {
       transition-duration: 300ms;
       height: 100%;
 
-      div {
+      > div {
         height: 100%;
         border: 0;
-        border-radius: 0.5rem;
         position: relative;
         box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
           0 4px 6px -4px rgb(0 0 0 / 0.1);
@@ -67,7 +64,70 @@
     padding: 1.5rem;
     border-top-left-radius: 0.25rem;
     border-top-right-radius: 0.25rem;
-    border-bottom-width: 1px solid #e8e8e8;
+    border-bottom: 1px solid #b8b8b8;
+
+    button {
+      @include transition;
+      padding: 0.25rem;
+      border: 0px;
+      position: absolute;
+      left: 2.25rem;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  .title {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+  }
+
+  .body {
+    position: relative;
+    padding: 1.5rem;
+    flex: 1 1 auto;
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.5rem;
+
+    > div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 1rem;
+      width: 100%;
+    }
+    button {
+      @include transition;
+      width: 100%;
+      position: relative;
+      border-radius: 0.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+
+      &:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      .icon {
+        position: absolute;
+        left: 1rem;
+        top: 0.75rem;
+      }
+    }
   }
 }
 
@@ -79,4 +139,32 @@
 .modal-disabled {
   transform: translateY(100%);
   opacity: 0;
+}
+
+.outline {
+  background-color: white;
+  border: 1px solid #000;
+  color: #000;
+}
+
+.no-outline {
+  background-color: rgb(244 63 94);
+  border: 1px solid rgb(244 63 94);
+  color: white;
+}
+
+.small {
+  padding: 0.25rem 0;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 300;
+  border: 1px solid #b8b8b8;
+}
+
+.not-small {
+  padding: 0.75rem 0;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 600;
+  border: 2px solid #b8b8b8;
 }

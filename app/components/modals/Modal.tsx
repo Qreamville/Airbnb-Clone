@@ -2,6 +2,8 @@
 
 import React, { ReactElement, useState, useEffect, useCallback } from "react";
 import styles from "../../../styles/component/modal.module.scss";
+import { IoMdClose } from "react-icons/io";
+import Button from "../Button";
 
 interface ModalProps {
   isOpen: boolean;
@@ -13,7 +15,7 @@ interface ModalProps {
   actionLabel: string;
   disabled?: boolean;
   secondaryAction?: () => void;
-  secondaryLabel?: () => string;
+  secondaryActionLabel?: string;
 }
 
 const Modal = ({
@@ -25,7 +27,7 @@ const Modal = ({
   disabled,
   footer,
   secondaryAction,
-  secondaryLabel,
+  secondaryActionLabel,
   title,
 }: ModalProps) => {
   const [showModal, setShowModal] = useState(isOpen);
@@ -65,7 +67,30 @@ const Modal = ({
               showModal ? styles["modal-active"] : ["modal-disabled"]
             }`}
           >
-            <div className={styles.header}></div>
+            <div className={styles.header}>
+              <button onClick={handleClose}>
+                <IoMdClose size={18} />
+              </button>
+              <div className={styles.title}>{title}</div>
+            </div>
+            <div className={styles.body}></div>
+            <div className={styles.footer}>
+              <div>
+                {secondaryAction && secondaryActionLabel && (
+                  <Button
+                    outline
+                    label={secondaryActionLabel}
+                    onClick={handleSecondaryAction}
+                    disabled={disabled}
+                  />
+                )}
+                <Button
+                  label={actionLabel}
+                  onClick={handleSubmit}
+                  disabled={disabled}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
