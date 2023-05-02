@@ -168,3 +168,96 @@
   font-weight: 600;
   border: 2px solid #b8b8b8;
 }
+
+// Register Modal
+
+.register {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.center {
+  text-align: center;
+}
+
+.not-center {
+  text-align: start;
+}
+
+.register-title {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+}
+
+.register-subtitle {
+  font-weight: 700;
+  color: rgb(115 115 115);
+  margin-top: 0.5rem;
+}
+
+.register-input {
+  width: 100%;
+  position: relative;
+
+  svg {
+    color: rgb(64 64 64);
+    position: absolute;
+    top: 1.25rem;
+    left: 0.5rem;
+  }
+
+  input {
+    padding: 1rem;
+    padding-top: 1.5rem;
+    background-color: #ffffff;
+    transition-property: background-color, border-color, color, fill, stroke,
+      opacity, box-shadow, transform;
+    font-weight: 300;
+    width: 100%;
+    border-radius: 0.375rem;
+    border: 2px solid #b8b8b8;
+    outline: 0;
+
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+  }
+
+  label {
+    position: absolute;
+    top: 1.25rem;
+    z-index: 10;
+    transition-duration: 150ms;
+    transform: translateY(-1.75rem);
+    font-size: 1rem;
+    line-height: 1.5rem;
+    transform-origin: 0;
+  }
+}
+
+.error {
+  border-color: rgb(239 68 68);
+
+  &:focus {
+    border: rgb(239 68 68);
+  }
+}
+
+.no-error {
+  border-color: rgb(212 212 212);
+
+  &:focus {
+    border-color: #000;
+  }
+}
+
+.format-price {
+  padding-left: 2.25rem;
+}
+
+.no-format-price {
+  padding-left: 1rem;
+}

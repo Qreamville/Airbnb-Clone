@@ -73,7 +73,7 @@ const Modal = ({
               </button>
               <div className={styles.title}>{title}</div>
             </div>
-            <div className={styles.body}></div>
+            <div className={styles.body}>{body}</div>
             <div className={styles.footer}>
               <div>
                 {secondaryAction && secondaryActionLabel && (
