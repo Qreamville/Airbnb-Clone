@@ -212,45 +212,57 @@
     padding: 1rem;
     padding-top: 1.5rem;
     background-color: #ffffff;
-    transition-property: background-color, border-color, color, fill, stroke,
-      opacity, box-shadow, transform;
+    transition-property: all;
+    transition-duration: 300ms;
     font-weight: 300;
     width: 100%;
     border-radius: 0.375rem;
     border: 2px solid #b8b8b8;
     outline: 0;
+    padding-left: 5.5rem;
 
     &:disabled {
       opacity: 0.7;
       cursor: not-allowed;
     }
+
+    &:focus {
+      padding-left: 1rem;
+    }
+
+    &:focus + label {
+      scale: 0.8;
+      top: 1px;
+      background-color: #ffffff;
+      padding: 0 2px;
+    }
   }
 
   label {
     position: absolute;
-    top: 1.25rem;
+    top: 2.5rem;
     z-index: 10;
     transition-duration: 150ms;
-    transform: translateY(-1.75rem);
+    transform: translateY(-1rem);
     font-size: 1rem;
     line-height: 1.5rem;
     transform-origin: 0;
   }
 }
 
-.error {
-  border-color: rgb(239 68 68);
+.input-error {
+  border: 2px solid rgb(239 68 68) !important;
 
   &:focus {
-    border: rgb(239 68 68);
+    border: 2px solid rgb(239 68 68);
   }
 }
 
-.no-error {
-  border-color: rgb(212 212 212);
+.no-input-error {
+  border: 2px solid rgb(212 212 212);
 
   &:focus {
-    border-color: #000;
+    border-color: 2px solid #000;
   }
 }
 
@@ -260,4 +272,20 @@
 
 .no-format-price {
   padding-left: 1rem;
+}
+
+.label-format {
+  left: 2.25rem;
+}
+
+.no-label-format {
+  left: 1rem;
+}
+
+.label-error {
+  color: rgb(239 68 68);
+}
+
+.no-label-error {
+  color: rgb(161 161 170);
 }

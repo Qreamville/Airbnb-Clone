@@ -35,8 +35,15 @@ const Inputs = ({
         placeholder=" "
         className={`${
           formatPrice ? styles["format-price"] : styles["no-format-price"]
-        } ${errors[id] ? styles["errors"] : styles["no-error"]}`}
+        } ${errors[id] ? styles["input-error"] : styles["no-input-error"]}`}
       />
+      <label
+        className={`${
+          formatPrice ? styles["label-format"] : styles["no-label-format"]
+        } ${errors[id] ? styles["label-error"] : ["no-label-error"]}`}
+      >
+        {label}
+      </label>
     </div>
   );
 };
