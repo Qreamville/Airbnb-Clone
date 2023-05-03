@@ -24,11 +24,11 @@ const Button = ({
   return (
     <button
       className={`${small ? styles["small"] : styles["not-small"]}
-      ${outline ? styles["outline"] : styles["no-outline"]}`}
+      ${outline ? styles["outline"] : styles["no-outline"]} ${styles.btn}`}
       onClick={onClick}
       disabled={disabled}
     >
-      {Icon && <Icon size={24} />}
+      {Icon && <Icon size={24} className={styles.icon} />}
       {label}
     </button>
   );

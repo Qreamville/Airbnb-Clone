@@ -10,6 +10,8 @@ import Modal from "./Modal";
 import Heading from "../Heading";
 import styles from "../../../styles/component/modal.module.scss";
 import Inputs from "../inputs/Inputs";
+import { toast } from "react-hot-toast";
+import Button from "../Button";
 
 const RegisterModal = () => {
   const registerModal = useRegisterModal();
@@ -36,7 +38,7 @@ const RegisterModal = () => {
         registerModal.onClose();
       })
       .catch((error) => {
-        console.log(error);
+        toast.error("Something went wrong");
       })
       .finally(() => {
         setIsLoading(false);
@@ -44,7 +46,7 @@ const RegisterModal = () => {
   };
 
   const bodyContent = (
-    <div className={styles.register}>
+    <div className={styles["register-heading"]}>
       <Heading title="Welcome to Airbnb" subtitle="Create an account" center />
       <Inputs
         register={register}
@@ -73,6 +75,29 @@ const RegisterModal = () => {
     </div>
   );
 
+  const footerContent = (
+    <div className={styles["register-footer"]}>
+      <Button
+        outline
+        label="Continue with Google"
+        icon={FcGoogle}
+        onClick={() => {}}
+      />
+      <Button
+        outline
+        label="Continue with Github"
+        icon={AiFillGithub}
+        onClick={() => {}}
+      />
+      <div>
+        <div className={styles["have-account"]}>
+          <div>Already have an account?</div>
+          <div onClick={registerModal.onClose}>Log in</div>
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <Modal
       disabled={isLoading}
@@ -82,6 +107,7 @@ const RegisterModal = () => {
       onClose={registerModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
       body={bodyContent}
+      footer={footerContent}
     />
   );
 };

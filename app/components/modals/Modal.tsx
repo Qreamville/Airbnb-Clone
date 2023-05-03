@@ -90,6 +90,7 @@ const Modal = ({
                   disabled={disabled}
                 />
               </div>
+              {footer}
             </div>
           </div>
         </div>
