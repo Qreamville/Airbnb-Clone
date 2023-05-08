@@ -8,6 +8,9 @@ const nextConfig = {
     includePaths: [path.join(__dirname, "styles")],
     prependData: '@import "./styles/index.scss";',
   },
+  images: {
+    domains: ["avatars.githubusercontent.com", "lh3.googleusercontent.com"],
+  },
 };
 
 module.exports = nextConfig;

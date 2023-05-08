@@ -14,8 +14,10 @@ import styles from "../../../styles/component/modal.module.scss";
 import Inputs from "../inputs/Inputs";
 import { toast } from "react-hot-toast";
 import Button from "../Button";
+import { useRouter } from "next/navigation";
 
 const LoginModal = () => {
+  const router = useRouter();
   const registerModal = useLoginModal();
   const loginModal = useLoginModal();
   const [isLoading, setIsLoading] = useState(false);
@@ -33,6 +35,22 @@ const LoginModal = () => {
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true);
+    signIn("credentials", {
+      ...data,
+      redirect: false,
+    }).then((callback) => {
+      setIsLoading(false);
+
+      if (callback?.ok) {
+        toast.success("Logged In");
+        router.refresh();
+        loginModal.onClose;
+      }
+
+      if (callback?.error) {
+        toast.error(callback.error);
+      }
+    });
   };
 
   const bodyContent = (
@@ -67,13 +85,13 @@ const LoginModal = () => {
         outline
         label="Continue with Google"
         icon={FcGoogle}
-        onClick={() => {}}
+        onClick={() => signIn("google")}
       />
       <Button
         outline
         label="Continue with Github"
         icon={AiFillGithub}
-        onClick={() => {}}
+        onClick={() => signIn("github")}
       />
       <div>
         <div className={styles["have-account"]}>
