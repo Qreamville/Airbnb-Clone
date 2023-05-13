@@ -7,13 +7,13 @@ import Logo from "./Logo";
 import Search from "./Search";
 import UserMenu from "./UserMenu";
 import { SafeUser } from "@/app/types";
+import Categories from "./Categories";
 
 interface NavbarProps {
   currentUser?: SafeUser | null;
 }
 
 const Navbar = ({ currentUser }: NavbarProps) => {
-  console.log(currentUser);
   return (
     <nav className={styles["nav"]}>
       <div>
@@ -25,6 +25,7 @@ const Navbar = ({ currentUser }: NavbarProps) => {
           </div>
         </Container>
       </div>
+      <Categories />
     </nav>
   );
 };
