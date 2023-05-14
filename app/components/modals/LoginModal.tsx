@@ -1,12 +1,10 @@
 "use client";
 
-import axios from "axios";
 import { AiFillGithub } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import useLoginModal from "../../hooks/useLogin";
-import useRegisterModal from "../../hooks/useRegister";
 import { signIn } from "next-auth/react";
 import Modal from "./Modal";
 import Heading from "../Heading";
@@ -15,10 +13,11 @@ import Inputs from "../inputs/Inputs";
 import { toast } from "react-hot-toast";
 import Button from "../Button";
 import { useRouter } from "next/navigation";
+import useRegisterModal from "@/app/hooks/useRegister";
 
 const LoginModal = () => {
   const router = useRouter();
-  const registerModal = useLoginModal();
+  const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -32,6 +31,11 @@ const LoginModal = () => {
       password: "",
     },
   });
+
+  const toggle = useCallback(() => {
+    loginModal.onClose();
+    registerModal.onOpen();
+  }, []);
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true);
@@ -95,8 +99,8 @@ const LoginModal = () => {
       />
       <div>
         <div className={styles["have-account"]}>
-          <div>Already have an account?</div>
-          <div onClick={registerModal.onClose}>Log in</div>
+          <div>First time using Airbnb?</div>
+          <div onClick={toggle}>Create an account</div>
         </div>
       </div>
     </div>

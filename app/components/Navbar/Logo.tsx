@@ -5,9 +5,10 @@ import { useRouter } from "next/navigation";
 import styles from "../../../styles/component/home/logo.module.scss";
 
 const Logo = () => {
-  const route = useRouter();
+  const router = useRouter();
   return (
     <Image
+      onClick={() => router.push("/")}
       alt="airbnb logo"
       className={styles.logo}
       height={100}
