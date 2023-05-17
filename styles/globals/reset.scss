@@ -280,46 +280,9 @@ input[type="range"]::-moz-range-thumb {
   cursor: pointer;
 }
 
-// .container {
-//   width: 100%
-// }
-
-// @media (min-width:475px) {
-//   .container {
-//     max-width: 475px
-//   }
-
-//   .\!container {
-//     max-width: 475px !important
-//   }
-// }
-
-// @media (min-width:576px) {
-//   .container {
-//     max-width: 576px
-//   }
-
-//   .\!container {
-//     max-width: 576px !important
-//   }
-// }
-
-// @media (min-width:768px) {
-//   .container {
-//     max-width: 768px
-//   }
-
-//   .\!container {
-//     max-width: 768px !important
-//   }
-// }
-
-// @media (min-width:1124px) {
-//   .container {
-//     max-width: 1124px
-//   }
-
-//   .\!container {
-//     max-width: 1124px !important
-//   }
-// }
+.leaflet-bottom,
+.leaflet-control,
+.leaflet-pane,
+.leaflet-top {
+  z-index: 0 !important;
+}
