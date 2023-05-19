@@ -52,30 +52,6 @@ const RentModal = () => {
     return "Back";
   }, [step]);
 
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    if (step !== STEPS.PRICE) {
-      return onNext();
-    }
-
-    setIsLoading(true);
-
-    axios
-      .post("/api/listings", data)
-      .then(() => {
-        toast.success("Listing created!");
-        router.refresh();
-        reset();
-        setStep(STEPS.CATEGORY);
-        rentModal.onClose();
-      })
-      .catch(() => {
-        toast.error("Something went wrong.");
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  };
-
   const {
     register,
     handleSubmit,
@@ -103,6 +79,30 @@ const RentModal = () => {
   const roomCount = watch("roomCount");
   const bathroomCount = watch("bathroomCount");
   const imageSrc = watch("imageSrc");
+
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+    if (step !== STEPS.PRICE) {
+      return onNext();
+    }
+
+    setIsLoading(true);
+
+    axios
+      .post("/api/listings", data)
+      .then(() => {
+        toast.success("Listing created!");
+        router.refresh();
+        reset();
+        setStep(STEPS.CATEGORY);
+        rentModal.onClose();
+      })
+      .catch(() => {
+        toast.error("Something went wrong.");
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
 
   const Map = useMemo(
     () =>
@@ -258,7 +258,7 @@ const RentModal = () => {
       title="Airbnb your home"
       actionLabel={actionLabel}
       onClose={rentModal.onClose}
-      onSubmit={onNext}
+      onSubmit={handleSubmit(onSubmit)}
       secondaryActionLabel={secondaryActionLabel}
       secondaryAction={step === STEPS.CATEGORY ? undefined : onBack}
       body={bodyContent}
