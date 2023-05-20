@@ -8,7 +8,6 @@ import useCountries from "@/app/hooks/useCountries";
 import { SafeListing, SafeReservation, SafeUser } from "@/app/types";
 import HeartButton from "../HeartButton";
 import Button from "../Button";
-import ClientOnly from "../ClientOnly";
 
 interface ListingCardProps {
   data: SafeListing;
@@ -20,7 +19,7 @@ interface ListingCardProps {
   currentUser?: SafeUser | null;
 }
 
-const ListingCard = ({
+const ListingCard: React.FC<ListingCardProps> = ({
   data,
   reservation,
   onAction,
@@ -28,7 +27,7 @@ const ListingCard = ({
   actionLabel,
   actionId = "",
   currentUser,
-}: ListingCardProps) => {
+}) => {
   const router = useRouter();
   const { getByValue } = useCountries();
 
