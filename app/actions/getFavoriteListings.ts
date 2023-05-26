@@ -18,7 +18,7 @@ export default async function getFavoriteListings() {
       },
     });
 
-    const safeFavorites = favourites.map((favorite: any) => ({
+    const safeFavorites = favourites.map((favorite) => ({
       ...favorite,
       createdAt: favorite.createdAt.toString(),
     }));
